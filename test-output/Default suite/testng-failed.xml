@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="testcases.RAW_DATAMART_CURATED.SnowFlake_RowCount_v1">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="validateColumnName_BKP" invocation-numbers="0 2 5 6 7 9 12 13 14 17 19 22 23 24 26 29 30 31 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 53 55 56 57 58 60 63 64 65 68 70 73 74 75 77 80 81 82 85 87 90 91 92 94 97 98 99 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 121 124 125 126 128 131 132 133 145 148 149 150 153 155 157 158 159 160 162 165 166 167 170 172 174 175 176 177 179 182 183 184 187 189 192 193 194 196 199 200 201"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- testcases.RAW_DATAMART_CURATED.SnowFlake_RowCount_v1 -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

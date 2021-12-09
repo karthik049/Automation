@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ 
+ <!-- <test thread-count="5" name="SQL_SnowFlake">
+    <classes>
+      <class name="testcases.RowCount"/>
+      <class name="testcases.ColumnCheck"/>     
+    </classes>
+  </test>  -->
+  
+   <test thread-count="5" name="SnowFlake">
+    <classes>
+      <class name="testcases.RAW_DATAMART_CURATED.SnowFlake_RowCount_Master" />
+      <class name="testcases.RAW_DATAMART_CURATED.SnowFlake_ColumnValidation_Master"/>
+    </classes>
+  </test> 
+  
+</suite>

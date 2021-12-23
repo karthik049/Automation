@@ -18,8 +18,13 @@ public class PrintUtils {
 		Reporter.log(msg);
 		ExtentReport.testStep(msg, "FAIL");
 		//Assert.fail();
-		
-		Validator.sa.fail();
-		
+		Validator.sa.fail();	
+	}
+	
+	public static void logInfo(String msg) 
+	{
+		System.out.println(msg);
+		Reporter.log(msg);
+		ExtentReport.testStep(msg, "INFO");
 	}
 }

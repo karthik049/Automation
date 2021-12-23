@@ -14,7 +14,7 @@ public class ExtentReport {
 	private static ExtentReports extent;
 
 
-	public static void startReport()
+	public static void startReport(String name)
 	{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-YYYY");  
 		LocalDateTime now = LocalDateTime.now();
@@ -26,7 +26,7 @@ public class ExtentReport {
 		DateName = DateName.replace(" ", "-") ;
 		DateName = DateName.replace(":", "-") ;
 
-		extent = new ExtentReports("./ExtentReport/"+dateFolder+"/DF_Automation_Report_"+DateName.trim()+".html", true);
+		extent = new ExtentReports("./ExtentReport/"+dateFolder+"/DF_Report_"+name+"_"+DateName.trim()+".html", true);
 		extent.loadConfig(new File("./extent-config.xml"));
 	}
 

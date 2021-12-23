@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="SnowFlake(failed)">
+  <test thread-count="5" name="ADP(failed)">
     <classes>
-      <class name="testcases.RAW_DATAMART_CURATED.SnowFlake_ColumnValidation_Master">
+      <class name="testcases.ADP.ADP_DuplicateCheck">
         <methods>
-          <include name="Testcase_ColumnValidation" invocation-numbers="12 13 14 29 30 31 46 47 48 63 64 65 80 81 82 97 98 99 114 115 116 131 132 133 148 149 150 165 166 167 182 183 184 199 200 201 232 273 355 396 437 519 560 601 642 683 724 731 765 772 806 813 847 854 888 895 929 936 970 977 1011 1018 1052 1059 1093 1100 1134 1141 1175 1182"/>
+          <include name="start"/>
           <include name="beforeMethod"/>
-          <include name="beforeSuite"/>
-          <include name="afterSuite"/>
+          <include name="Testcase_DuplicateData" invocation-numbers="0 1"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- testcases.RAW_DATAMART_CURATED.SnowFlake_ColumnValidation_Master -->
-      <class name="testcases.RAW_DATAMART_CURATED.SnowFlake_RowCount_Master">
+      </class> <!-- testcases.ADP.ADP_DuplicateCheck -->
+      <class name="testcases.ADP.ADP_ColumnCheck">
         <methods>
+          <include name="start"/>
+          <include name="Testcase_ColumnValidation" invocation-numbers="0 1"/>
           <include name="beforeMethod"/>
-          <include name="Testcase_RowCount_validation" invocation-numbers="0 5 9 12 13 14 17 24 26 29 30 31 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 55 58 60 63 64 65 67 68 77 80 81 82 94 97 98 99 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 128 129 130 131 132 133 143 145 148 149 150 153 157 160 162 163 165 166 167 168 170 174 177 179 182 183 184 187 194 196 199 200 201 203 204 205 206 210 212 213 214 215 216 217 218 220 221 222 226 227 229 230 231 232 233 234 237 239 240 242 243 245 246 247 251 253 254 255 256 257 258 259 260 261 262 263 267 268 270 271 272 273 274 275 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324 325 326 327 328 329 330 333 334 335 336 337 338 339 340 341 342 343 344 345 347 350 352 353 354 355 356 357 360 363 364 365 366 367 369 370 374 375 376 377 378 379 380 381 382 383 384 385 386 390 391 393 394 395 396 397 398 399 401 403 404 406 407 408 409 410 411 412 415 417 418 419 420 421 422 423 424 425 427 428 431 432 434 435 436 437 438 439 440 445 447 448 449 450 451 452 453 454 455 456 457 458 459 460 461 462 463 464 465 466 467 468 469 470 471 472 473 474 475 476 477 478 479 480 481 482 483 484 485 486 487 488 489 490 491 492 493 497 498 499 500 501 502 503 504 505 507 509 510 514 516 517 518 519 520 521 526 527 529 530 531 532 533 534 538 541 542 543 544 545 548 549 550 551 555 557 558 559 560 561 562 567 568 570 573 574 575 579 580 581 582 583 584 585 586 587 588 589 590 591 592 596 598 599 600 601 602 603 604 608 609 611 612 614 615 616 620 621 622 623 624 625 626 627 628 630 631 632 633 637 639 640 641 642 643 644 645 649 650 652 653 654 655 656 657 661 662 663 664 665 666 667 668 669 672 673 674 677 678 680 681 682 683 684 685 687 688 689 691 693 694 695 701 703 704 708 710 726 742 743 744 745 749 767 782 783 786 790 817 823 824 827 831 833 834 836 839 840 849 850 865 868 872 874 888 891 899 906 908 909 913 940 947 949 950 954 962 963 972 973 981 988 991 995 1013 1014 1022 1029 1031 1032 1036 1038 1039 1040 1041 1045 1046 1054 1057 1064 1070 1073 1077 1082 1087 1096 1105 1111 1114 1118 1123 1136 1145 1146 1152 1155 1159 1161 1163 1177 1178 1180"/>
-          <include name="beforeSuite"/>
-          <include name="afterSuite"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- testcases.RAW_DATAMART_CURATED.SnowFlake_RowCount_Master -->
+      </class> <!-- testcases.ADP.ADP_ColumnCheck -->
+      <class name="testcases.ADP.ADP_DataCheck">
+        <methods>
+          <include name="start"/>
+          <include name="Testcase_RowCount_validation" invocation-numbers="0 1"/>
+          <include name="beforeMethod"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- testcases.ADP.ADP_DataCheck -->
     </classes>
-  </test> <!-- SnowFlake(failed) -->
+  </test> <!-- ADP(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
- 
- <!-- <test thread-count="5" name="SQL_SnowFlake">
-    <classes>
-      <class name="testcases.RowCount"/>
-      <class name="testcases.ColumnCheck"/>     
-    </classes>
-  </test>  -->
-  
-   <test thread-count="5" name="SnowFlake">
-    <classes>
-      <class name="testcases.RAW_DATAMART_CURATED.SnowFlake_RowCount_Master" />
-      <class name="testcases.RAW_DATAMART_CURATED.SnowFlake_ColumnValidation_Master"/>
-    </classes>
-  </test> 
-  
+
+	<!-- <test thread-count="5" name="SQL_SnowFlake">
+		<classes>
+			<class name="testcases.RowCount" />
+			<class name="testcases.ColumnCheck" />
+		</classes>
+	</test>
+
+	<test name="ServiceTitan">
+		<classes>
+			<class name="testcases.ServiceTitan.SnowFlake_ColumnValidation_Master"/>
+			<class name="testcases.ServiceTitan.SnowFlake_Duplicate_Master" />
+			<class name="testcases.ServiceTitan.SnowFlake_RowCount_Master" />
+			<class name="testcases.ServiceTitan.SnowFlake_DataCheck_Master" />
+		</classes>
+	</test> -->
+	<test name="ADP">
+		<classes>
+			<class name="testcases.ADP.ADP_RowCount" />
+			<class name="testcases.ADP.ADP_ColumnCheck" />
+			<class name="testcases.ADP.ADP_DuplicateCheck" />
+			<class name="testcases.ADP.ADP_DataCheck" />
+		</classes>
+	</test>
+
+
 </suite>

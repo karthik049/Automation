@@ -51,6 +51,10 @@ public class Validator {
 		});
 	}
 	
+	public static String removeLastChars(String str, int chars) 
+	{
+	    return str.substring(0, str.length() - chars);
+	}
 	 public static void checkMatch(ArrayList<String> arraylist1, ArrayList<String> arraylist2 ) {
 	        HashSet<String> hs1 = new HashSet<String>();
 	        HashSet<String> hs2 = new HashSet<String>();

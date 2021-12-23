@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
+import common.Constants;
 import common.ExcelLoader;
 import common.ExtentReport;
 import common.Validator;
@@ -21,20 +22,43 @@ public class BaseClass extends Validator{
 	public static HashMap<String, String> sqlMap = new HashMap<String, String>();
 	public static HashMap<String, String> snowMap = new HashMap<String, String>();
 	public ExcelLoader excel=null;
+	
+	public static String SRCSchema;
+	public static String StageSchema;
+	public static String TargetSchema;
+	public String env ="DEV";
+	
 	@BeforeSuite
-	public void beforeSuite() 
+	public void start() 
 	{
-		ExtentReport.startReport();
+		switch (env)
+		{
+		case "DEV": 
+			SRCSchema=Constants.DevSchema.DEV_ENT_RAW.toString();
+			StageSchema= Constants.DevSchema.CURATED_DATAMART.toString();
+			TargetSchema=Constants.DevSchema.DEV_ENT_CURATED.toString();
+			break;
+
+		default: System.out.println("Plz Set correct Env name ");
+			break;
+		}
+	}
+	
+	@BeforeClass
+	public void beforeClass() 
+	{
+		String className = this.getClass().getSimpleName();
+		ExtentReport.startReport(className);
 		//sql =new SQLConnector();
-		sql.connectToDB();
+		//sql.connectToDB();
 		
-		//snowflake = new SnowFlakeConnector();
+		snowflake = new SnowFlakeConnector();
 		snowflake.connectToDB();
 	}
-	@AfterSuite
-	public void afterSuite() 
+	@AfterClass
+	public void afterClass() 
 	{
-		sql.closeDBConnection();
+		//sql.closeDBConnection();
 		snowflake.closeDBConnection();
 		ExtentReport.endReport();
 	}

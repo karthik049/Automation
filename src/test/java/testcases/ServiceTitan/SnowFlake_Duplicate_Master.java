@@ -25,19 +25,26 @@ public class SnowFlake_Duplicate_Master  extends BaseClass{
 		String RawQuery=null;
 		String DataMart=null;
 		String Curated=null;
-
+		
 		ExtentReport.setTestName(TenantName+"_"+RawTable +" ("+Type+")", "Duplicate records validation for RAW VS Datamart VS Curated for all "+ Type +" Tables");
 
 		RawQuery = "SELECT ID, COUNT(1) FROM "+SRCSchema+"."+RawTenant+"."+RawTable +" GROUP BY 1 HAVING COUNT(1)>1";
 		DataMart ="SELECT ID, COUNT(1) FROM "+StageSchema+"."+DataMartTenant+"."+DatamartTable+" WHERE ACTIVE_FLAG='Y'  GROUP BY 1 HAVING COUNT(1)>1";
 		Curated= "SELECT ID, COUNT(1) FROM "+TargetSchema+"."+Curated_Tenant+"."+CuratedTable+" WHERE TENANT_TYPE='"+TenantName+"'  GROUP BY 1 HAVING COUNT(1)>1";
 
+
+		int RawQuery_count = snowflake.readDB("select count(1) as Total from ("+RawQuery+") ");
+		int DataMartQuery_count = snowflake.readDB("select count(1) as Total from ("+DataMart+") ");
+		int CuratedQuery_count = snowflake.readDB("select count(1) as Total from ("+Curated+") ");
+		
 		ResultSet RAW_RS = snowflake.readDBAndReturnResultSet(RawQuery);
 		ResultSet DataMart_RS = snowflake.readDBAndReturnResultSet(DataMart);
 		ResultSet Curated_RS = snowflake.readDBAndReturnResultSet(Curated);
 
 		//RAW
-		int Raw_Size=RAW_RS.getFetchSize();
+		//int Raw_Size=RAW_RS.getFetchSize();
+		int Raw_Size=RawQuery_count;
+		
 		if(Raw_Size!=0)
 		{
 			actualList.clear();
@@ -50,7 +57,8 @@ public class SnowFlake_Duplicate_Master  extends BaseClass{
 			PrintUtils.logInfo("Duplciate Record Details"+TenantName+"_"+RawTable+" :: "+ actualList);
 		}
 		//Datamart
-		int DM_Size=DataMart_RS.getFetchSize();
+		//int DM_Size=DataMart_RS.getFetchSize();
+		int DM_Size=DataMartQuery_count;
 		if(DM_Size!=0)
 		{
 			actualList.clear();
@@ -63,7 +71,8 @@ public class SnowFlake_Duplicate_Master  extends BaseClass{
 			PrintUtils.logInfo("Duplciate Record Details"+TenantName+"_"+DatamartTable+" :: "+ actualList);
 		}
 		//Curated
-		int CR_Size=Curated_RS.getFetchSize();
+		//int CR_Size=Curated_RS.getFetchSize();
+		int CR_Size=CuratedQuery_count;
 		if(CR_Size!=0)
 		{
 			actualList.clear();

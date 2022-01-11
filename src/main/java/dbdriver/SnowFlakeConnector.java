@@ -17,6 +17,8 @@ public class SnowFlakeConnector {
 
 	public void connectToDB() 
 	{
+		
+		//ROLE=SYSADMIN | ACCOUNTADMIN
 		try 
 		{
 			Class.forName("net.snowflake.client.jdbc.SnowflakeDriver");  

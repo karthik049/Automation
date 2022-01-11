@@ -109,7 +109,8 @@ public class SnowFlake_ColumnValidation_Master  extends BaseClass{
 		// Checkpoint : 2 - Check datamart is having additional columns in table
 
 		if(DatamartColumnList.contains("ACTIVE_FLAG") && DatamartColumnList.contains("RECORD_CREATE_DATE")
-				&& DatamartColumnList.contains("RECORD_UPDATE_DATE") && DatamartColumnList.contains("MASTER_ID"))
+				&& DatamartColumnList.contains("RECORD_UPDATE_DATE") && DatamartColumnList.contains("MASTER_ID")
+				&&  DatamartColumnList.contains("JOB_NAME"))
 		{
 			PrintUtils.logMsg("Datamart tables contains additional column name like [ACTIVE_FLAG, RECORD_CREATE_DATE, RECORD_UPDATE_DATE, MASTER_ID]");
 		}else 
@@ -121,7 +122,7 @@ public class SnowFlake_ColumnValidation_Master  extends BaseClass{
 		// Checkpoint : 3 - Check Curated ColumnList  is having additional columns in table
 
 		if(CuratedColumnList.contains("RECORD_CREATE_DATE") && CuratedColumnList.contains("RECORD_UPDATE_DATE")
-				&& CuratedColumnList.contains("RECORD_UPDATED_BY"))
+				&& CuratedColumnList.contains("RECORD_UPDATED_BY") &&  CuratedColumnList.contains("JOB_NAME"))
 		{
 			PrintUtils.logMsg("Curated tables contains additional column name like [RECORD_CREATE_DATE, RECORD_UPDATE_DATE, RECORD_UPDATED_BY]");
 		}else 
@@ -212,7 +213,7 @@ public class SnowFlake_ColumnValidation_Master  extends BaseClass{
 				&& DatamartColumnList.contains("RECORD_UPDATE_DATE") && DatamartColumnList.contains("MASTER_ID")
 				&& DatamartColumnList.contains("TENANT_TYPE"))
 		{
-			PrintUtils.logMsg("Datamart tables contains additional column name like [ACTIVE_FLAG, RECORD_CREATE_DATE, RECORD_UPDATE_DATE, RECORD_UPDATE_DATE, MASTER_ID, TENANT_TYPE]");
+			PrintUtils.logMsg("Datamart tables contains additional column name like [ACTIVE_FLAG, RECORD_CREATE_DATE, RECORD_UPDATE_DATE, MASTER_ID, TENANT_TYPE]");
 		}else 
 		{
 			PrintUtils.logError("Datamart tables not contains additional column name like [ACTIVE_FLAG, RECORD_CREATE_DATE, RECORD_UPDATE_DATE, RECORD_UPDATE_DATE, MASTER_ID, TENANT_TYPE]");

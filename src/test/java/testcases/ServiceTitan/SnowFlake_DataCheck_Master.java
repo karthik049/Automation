@@ -86,10 +86,13 @@ public class SnowFlake_DataCheck_Master  extends BaseClass{
 		//Check 1 RAW - Datamart
 		String RAW_DataMart=RawQuery + " MINUS " + DataMart;
 
-		ResultSet RAW_DataMart_RS = snowflake.readDBAndReturnResultSet(RAW_DataMart);
-		int RD_Size=RAW_DataMart_RS.getFetchSize();
+		int RAWDATAMART_COUNT=snowflake.readDB("select count(1) as Total from ( "+RAW_DataMart+") ");
+				
+		//int RD_Size=RAW_DataMart_RS.getFetchSize();
+		int RD_Size=RAWDATAMART_COUNT;
 		if(RD_Size!=0)
 		{
+			ResultSet RAW_DataMart_RS = snowflake.readDBAndReturnResultSet(RAW_DataMart);
 			PrintUtils.logError("Mismatched row count :: " + RD_Size);
 			while(RAW_DataMart_RS.next())
 			{
@@ -101,10 +104,15 @@ public class SnowFlake_DataCheck_Master  extends BaseClass{
 
 		//Check 2 DataMart - Curated 
 		String Datamart_Curated= DataMart + " MINUS " + Curated;
-		ResultSet Datamart_Curated_RS = snowflake.readDBAndReturnResultSet(Datamart_Curated);
-		int DC_Size=Datamart_Curated_RS.getFetchSize();
+		
+		int DATAMARTCURATED_COUNT=snowflake.readDB("select count(1) as Total from ( "+Datamart_Curated+") ");
+		
+		
+		//int DC_Size=Datamart_Curated_RS.getFetchSize();
+		int DC_Size=DATAMARTCURATED_COUNT;
 		if(DC_Size!=0)
 		{
+			ResultSet Datamart_Curated_RS = snowflake.readDBAndReturnResultSet(Datamart_Curated);
 			PrintUtils.logError("Mismatched row count :: " + DC_Size);
 			while(Datamart_Curated_RS.next())
 			{
